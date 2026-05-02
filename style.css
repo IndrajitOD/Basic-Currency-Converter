@@ -2,12 +2,19 @@
     --primary: #6366f1;
     --primary-hover: #4f46e5;
     --bg-dark: #0f172a;
+
+    
     --text-main: #f8fafc;
     --text-muted: #94a3b8;
+    
     --glass-bg: rgba(255, 255, 255, 0.05);
     --glass-border: rgba(255, 255, 255, 0.1);
     --accent: #818cf8;
     --card-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+
+
+
+    
 }
 
 * {
@@ -27,7 +34,7 @@ body {
     overflow-x: hidden;
 }
 
-/* Background Decoration */
+
 .bg-decoration {
     position: fixed;
     top: 0;
@@ -72,10 +79,18 @@ body {
     gap: 2rem;
 }
 
-/* Header Styles */
+
 .app-header {
     text-align: center;
 }
+
+/*.conversion-row {
+    display: grid;
+    align-items: flex-end;
+    gap: 1rem;
+    margin-bottom: 5rem;
+}
+*/
 
 .app-header h1 {
     font-family: 'Outfit', sans-serif;
@@ -97,7 +112,7 @@ body {
     font-size: 0.95rem;
 }
 
-/* Card Styles */
+
 .converter-card {
     background: var(--glass-bg);
     backdrop-filter: blur(12px);
@@ -154,7 +169,7 @@ body {
     box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1);
 }
 
-/* Conversion Row Styles */
+
 .conversion-row {
     display: flex;
     align-items: flex-end;
@@ -209,10 +224,9 @@ body {
     outline: none;
     position: relative;
     z-index: 1;
-    pointer-events: none; /* Disable native select interactions */
-}
+    pointer-events: none;
 
-/* Custom Arrow Icon */
+
 .custom-select::after {
     content: '\f107';
     font-family: 'Font Awesome 6 Free';
@@ -233,7 +247,17 @@ body {
     color: var(--text-main);
 }
 
-/* Custom Dropdown Menu */
+    /*.dropdown-item {
+    display: grid;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+    color: var(--text-main);
+    transition: all 0.2s ease;
+    font-weight: 50;
+}*/
+
+
 .dropdown-menu {
     position: absolute;
     top: calc(100% + 10px);
@@ -286,7 +310,7 @@ body {
     border-radius: 2px;
 }
 
-/* Scrollbar Styling */
+
 .dropdown-menu::-webkit-scrollbar {
     width: 6px;
 }
@@ -327,7 +351,7 @@ body {
     transform: rotate(180deg);
 }
 
-/* Result Area */
+
 .result-area {
     text-align: center;
     margin-bottom: 2rem;
@@ -343,7 +367,7 @@ body {
     color: var(--text-main);
 }
 
-/* Convert Button */
+
 .convert-btn {
     width: 100%;
     background: linear-gradient(135deg, var(--primary), #a855f7);
@@ -393,9 +417,9 @@ body {
     }
 }
 
-/* Footer */
+
 .app-footer {
-    display: none; /* Hide the old footer if it still exists in any cache */
+    display: none;
 }
 
 .sticky-footer {
@@ -410,6 +434,22 @@ body {
     padding: 12px 0;
     z-index: 1000;
 }
+
+    /*@keyframes pulse-yellow {
+    0% {
+        box-shadow: 0 0 0 0 rgba(250, 204, 21, 0.7);
+        transform: scale(1);
+    }
+    70% {
+        box-shadow: 0 0 0 15px rgba(250, 204, 21, 0);
+        transform: scale(1.02);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(250, 204, 21, 0);
+        transform: scale(1);
+    }
+}
+*/
 
 .footer-container {
     width: 100%;
@@ -437,10 +477,17 @@ body {
     transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1), 
                 color 0.3s ease, 
                 opacity 0.5s ease;
-    backface-visibility: hidden; /* Prevent shaking */
+    backface-visibility: hidden; 
     -webkit-font-smoothing: antialiased;
-    transform: translateZ(0); /* Force hardware acceleration */
+    transform: translateZ(0); 
 }
+
+    /*.footer-github-btn:hover {
+    background: var(--primary);
+    border-color: var(--primary);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(99, 102, 241, 0.3);
+}*/
 
 .footer-text span:hover {
     opacity: 1;
@@ -449,7 +496,7 @@ body {
 }
 
 .footer-text span.name-word:hover {
-    color: #facc15; /* Modern Yellow */
+    color: #facc15;
 }
 
 .footer-github-btn {
@@ -478,7 +525,7 @@ body {
     font-size: 1.1rem;
 }
 
-/* Mobile adjustments for footer */
+
 @media (max-width: 600px) {
     .footer-container {
         flex-direction: column;
@@ -492,12 +539,12 @@ body {
     }
 }
 
-/* Adjust body to prevent footer overlap */
+
 body {
     padding-bottom: 60px;
 }
 
-/* Responsive Adjustments */
+
 @media (max-width: 768px) {
     .main-content {
         max-width: 450px;
@@ -512,6 +559,21 @@ body {
         padding: 1.5rem;
     }
 }
+
+    /*@media (max-height: 700px) {
+    .container {
+        gap: 1rem;
+    }
+    
+    .app-header h1 {
+        font-size: 1.5rem;
+        margin-bottom: 0.2rem;
+    }
+    
+    .subtitle {
+        display: none;
+    }
+}*/
 
 @media (max-width: 480px) {
     .main-content {
@@ -547,18 +609,18 @@ body {
     }
 
     #swap-btn {
-        background: var(--primary); /* Make it more visible on mobile */
+        background: var(--primary); 
         width: 44px;
         height: 44px;
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
     }
 
     .custom-select {
-        padding: 12px 14px; /* Larger touch target */
+        padding: 12px 14px; 
     }
 
     #amount {
-        padding: 14px 14px 14px 2.8rem; /* Larger touch target */
+        padding: 14px 14px 14px 2.8rem; 
         font-size: 1.2rem;
     }
 
@@ -577,11 +639,11 @@ body {
     }
 
     .dropdown-menu {
-        max-height: 200px; /* Shorter on mobile to avoid keyboard overlap */
+        max-height: 200px; 
     }
 }
 
-/* Height-based adjustments for small phones */
+
 @media (max-height: 700px) {
     .container {
         gap: 1rem;
@@ -593,6 +655,6 @@ body {
     }
     
     .subtitle {
-        display: none; /* Hide subtitle on very short screens */
+        display: none;
     }
 }
