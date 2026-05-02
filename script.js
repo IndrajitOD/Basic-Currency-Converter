@@ -2,9 +2,12 @@ const BASE_URL = "https://latest.currency-api.pages.dev/v1/currencies";
 
 const dropdowns = document.querySelectorAll(".custom-select select");
 const btn = document.querySelector(".convert-btn");
+
+
 const fromCurr = document.querySelector("#from-currency");
 const toCurr = document.querySelector("#to-currency");
 const msg = document.querySelector("#msg-text");
+
 const swapBtn = document.querySelector("#swap-btn");
 
 const updateFlag = (element) => {
@@ -19,6 +22,7 @@ const updateFlag = (element) => {
 
 const updateExchangeRate = async () => {
     let amount = document.querySelector("#amount");
+    
     let amtVal = amount.value;
     if (amtVal === "" || amtVal <= 0) {
         amtVal = 1;
@@ -29,7 +33,9 @@ const updateExchangeRate = async () => {
     
     const from = fromCurr.value.toLowerCase();
     const to = toCurr.value.toLowerCase();
+    
     const URL = `${BASE_URL}/${from}.json`;
+
     
     try {
         let response = await fetch(URL);
@@ -42,6 +48,7 @@ const updateExchangeRate = async () => {
             msg.innerText = `${amtVal} ${fromCurr.value} = ${finalAmount} ${toCurr.value}`;
         } else {
             msg.innerText = "Conversion rate not available.";
+            
         }
     } catch (error) {
         msg.innerText = "Error fetching rate. Try again.";
@@ -53,17 +60,21 @@ const showGlow = () => {
     btn.classList.add("ready");
 };
 
-// Populate dropdowns and create custom UI
+
 for (let select of dropdowns) {
     const parent = select.parentElement;
     const dropdownMenu = document.createElement("div");
     dropdownMenu.className = "dropdown-menu";
     parent.appendChild(dropdownMenu);
 
+    
+
     for (let currCode in countryList) {
         let newOption = document.createElement("option");
         newOption.innerText = currCode;
+        
         newOption.value = currCode;
+
         
         const dropdownItem = document.createElement("div");
         dropdownItem.className = "dropdown-item";
@@ -78,6 +89,7 @@ for (let select of dropdowns) {
         
         dropdownItem.appendChild(flagImg);
         dropdownItem.appendChild(codeText);
+        
         dropdownMenu.appendChild(dropdownItem);
 
         if (select.name === "from" && currCode === "USD") {
@@ -86,6 +98,7 @@ for (let select of dropdowns) {
         } else if (select.name === "to" && currCode === "INR") {
             newOption.selected = "selected";
             dropdownItem.classList.add("selected");
+            
         }
         select.append(newOption);
 
@@ -98,7 +111,7 @@ for (let select of dropdowns) {
             dropdownItem.classList.add("selected");
             
             parent.classList.remove("active");
-            showGlow(); // Show glow instead of auto-updating
+            showGlow(); 
         });
     }
 
@@ -119,7 +132,7 @@ document.addEventListener("click", () => {
     document.querySelectorAll(".custom-select").forEach(s => s.classList.remove("active"));
 });
 
-// Footer Text Animation
+
 const footerGreeting = document.querySelector("#footer-greeting");
 if (footerGreeting) {
     const text = footerGreeting.innerText;
@@ -129,7 +142,7 @@ if (footerGreeting) {
     }).join(" ");
 }
 
-// Swap Currencies
+
 swapBtn.addEventListener("click", () => {
     let tempCode = fromCurr.value;
     fromCurr.value = toCurr.value;
@@ -137,15 +150,31 @@ swapBtn.addEventListener("click", () => {
     
     updateFlag(fromCurr);
     updateFlag(toCurr);
-    showGlow(); // Show glow instead of auto-updating
+    showGlow();
 });
 
 btn.addEventListener("click", (evt) => {
     evt.preventDefault();
-    btn.classList.remove("ready"); // Stop the glow
+    btn.classList.remove("ready");
     updateExchangeRate();
 });
 
 window.addEventListener("load", () => {
     msg.innerText = "Click the button to get the exchange rate";
 });
+
+/*swapBtn.addEventListener("click", () => {
+    let tempCode = fromCurr.value;
+    fromCurr.value = toCurr.value;
+    toCurr.value = tempCode;
+    
+    updateFlag(fromCurr);
+    updateFlag(toCurr);
+    showGlow();
+});
+
+btn.addEventListener("click", (evt) => {
+    evt.preventDefault();
+    btn.classList.remove("ready");
+    updateExchangeRate();
+});*/
