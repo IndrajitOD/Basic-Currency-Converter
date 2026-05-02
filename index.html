@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global Currency Converter</title>
+    <!-- Google Fonts: Inter & Outfit -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="style.css" rel="stylesheet">
+</head>
+<body>
+    <div class="bg-decoration">
+        <div class="circle circle-1"></div>
+        <div class="circle circle-2"></div>
+    </div>
+
+    <main class="main-content">
+        <div class="container">
+            <header class="app-header">
+                <h1>Currency <span class="accent">Converter</span></h1>
+                <p class="subtitle">Real-time exchange rates at your fingertips</p>
+            </header>
+
+            <div class="converter-card">
+                <form id="converter-form">
+                    <div class="input-group">
+                        <label for="amount">Amount to Convert</label>
+                        <div class="amount-input-wrapper">
+                            <span class="currency-symbol">$</span>
+                            <input type="number" id="amount" value="1.00" step="any" min="0" placeholder="0.00" />
+                        </div>
+                    </div>
+
+                    <div class="conversion-row">
+                        <div class="select-box from">
+                            <label for="from-currency">From</label>
+                            <div class="custom-select">
+                                <img src="https://flagsapi.com/US/flat/64.png" alt="US Flag" id="from-flag" />
+                                <select name="from" id="from-currency">
+                                    <!-- Options will be populated by JS -->
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="swap-btn-container">
+                            <button type="button" id="swap-btn" aria-label="Swap Currencies">
+                                <i class="fa-solid fa-repeat"></i>
+                            </button>
+                        </div>
+
+                        <div class="select-box to">
+                            <label for="to-currency">To</label>
+                            <div class="custom-select">
+                                <img src="https://flagsapi.com/IN/flat/64.png" alt="India Flag" id="to-flag" />
+                                <select name="to" id="to-currency">
+                                    <!-- Options will be populated by JS -->
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="result-area">
+                        <p id="msg-text">Click the button to get the exchange rate</p>
+                    </div>
+
+                    <button type="submit" class="convert-btn">
+                        <span>Convert Now</span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </form>
+            </div>
+        </div> <!-- container -->
+    </main>
+    
+    <footer class="sticky-footer">
+        <div class="footer-container">
+            <div id="footer-greeting" class="footer-text">Hi i am Indrajit Bhowmick</div>
+            <div class="footer-actions">
+                <a href="https://github.com/indrajitbhowmick" target="_blank" class="footer-github-btn" rel="noopener noreferrer">
+                    <i class="fa-brands fa-github"></i>
+                    <span>GitHub</span>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="codes.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
