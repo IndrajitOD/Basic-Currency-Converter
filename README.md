@@ -6,7 +6,7 @@
 
 ## 🌐 Live Demo
 
-👉 https://basic-web-based-currency-convertor.netlify.app
+👉 https://basic-web-currency-converter.indrajitbhowmick.workers.dev
 
 ---
 
